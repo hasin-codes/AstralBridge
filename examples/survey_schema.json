@@ -1,0 +1,49 @@
+{
+  "survey": "Legacy Survey DR9",
+  "image": {
+    "description": "4-band optical image cube",
+    "shape": [4, 96, 96],
+    "bands": ["g", "r", "i", "z"],
+    "unit": "nanomaggies",
+    "dtype": "float32"
+  },
+  "flux_g": {
+    "description": "G-band aperture flux",
+    "type": "float",
+    "unit": "nanomaggies"
+  },
+  "flux_r": {
+    "description": "R-band aperture flux",
+    "type": "float",
+    "unit": "nanomaggies"
+  },
+  "flux_i": {
+    "description": "I-band aperture flux",
+    "type": "float",
+    "unit": "nanomaggies"
+  },
+  "flux_z": {
+    "description": "Z-band aperture flux",
+    "type": "float",
+    "unit": "nanomaggies"
+  },
+  "ebv": {
+    "description": "Galactic extinction E(B-V)",
+    "type": "float",
+    "unit": "magnitudes"
+  },
+  "ra": {
+    "description": "Right ascension",
+    "type": "float",
+    "unit": "degrees (J2000)"
+  },
+  "dec": {
+    "description": "Declination",
+    "type": "float",
+    "unit": "degrees (J2000)"
+  },
+  "observation_id": {
+    "description": "Unique observation identifier",
+    "type": "string"
+  }
+}

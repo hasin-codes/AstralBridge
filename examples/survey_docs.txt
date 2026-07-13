@@ -1,0 +1,34 @@
+# Example Survey: Legacy Survey DR9 Subset
+
+## Survey Overview
+
+This is a subset of the DESI Legacy Imaging Surveys DR9 data release. The
+Legacy Survey provides optical imaging in four bands (g, r, i, z) covering
+approximately 14,000 square degrees of the extragalactic sky.
+
+## File Format
+
+Observations are stored as JSON files with the following structure:
+
+- `image`: A 4-band image cube with shape [bands, height, width] = [4, 96, 96].
+  Band order is g, r, i, z. Values are in nanomaggies (flux units).
+- `flux_g`, `flux_r`, `flux_i`, `flux_z`: Aperture flux measurements in
+  nanomaggies for each band.
+- `ebv`: Galactic extinction (E(B-V)) from the SFD dust maps, in magnitudes.
+- `ra`, `dec`: Sky coordinates in degrees (J2000).
+- `survey`: Survey name string.
+- `observation_id`: Unique identifier for the observation.
+
+## Units
+
+- Image and flux values: nanomaggies (1 nanomaggie = 3.631e-6 Jy)
+- Coordinates: degrees (J2000)
+- Extinction: magnitudes
+
+## AION Compatibility
+
+The Legacy Survey g/r/i/z bands map directly to AION's DES-G, DES-R, DES-I,
+DES-Z image bands. The flux scalars map to AION's LegacySurveyFluxG/R/I/Z
+modalities. The EBV value maps to LegacySurveyEBV.
+
+This survey is fully compatible with AION's pretrained model.

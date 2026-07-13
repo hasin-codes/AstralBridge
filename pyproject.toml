@@ -1,0 +1,106 @@
+[build-system]
+requires = ["setuptools>=61", "setuptools_scm>=8.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "astralbridge-aion"
+dynamic = ["version"]
+description = "Gemma-powered scientific dataset onboarding layer for the AION astronomy foundation model"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "AstralBridge contributors"},
+]
+maintainers = [
+    {name = "AstralBridge contributors"},
+]
+keywords = [
+    "astronomy",
+    "astrophysics",
+    "machine learning",
+    "transformer",
+    "multimodal",
+    "deep learning",
+    "scientific computing",
+    "data onboarding",
+    "survey adapters",
+    "Gemma",
+    "AI",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+    "einops>=0.7.0",
+    "huggingface_hub>=0.24.7",
+    "jaxtyping>=0.2.28",
+    "numpy",
+    "scipy",
+    "tokenizers>=0.15.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/Hasin-Raiyan/AstralBridge"
+Documentation = "https://github.com/Hasin-Raiyan/AstralBridge"
+Repository = "https://github.com/Hasin-Raiyan/AstralBridge"
+"Upstream AION" = "https://github.com/PolymathicAI/AION"
+"AION Model" = "https://huggingface.co/polymathic-ai/aion-base"
+"Gemma Docs" = "https://ai.google.dev/gemma/docs"
+
+[project.scripts]
+astralbridge = "astralbridge.cli:main"
+
+[project.optional-dependencies]
+torch = [
+    "torch>=2.4.0",
+    "huggingface_hub[torch]>=0.24.7",
+]
+gemma = [
+    "google-genai>=1.0.0",
+]
+fits = [
+    "astropy>=5.0",
+]
+dev = [
+    "pre-commit",
+    "pytest",
+    "ruff",
+]
+docs = [
+    "furo",
+    "myst-parser>=1.0",
+    "sphinx-copybutton",
+    "sphinx-design",
+    "sphinxcontrib-mermaid",
+    "sphinx>=7.2",
+]
+
+[tool.ruff.lint]
+# Ignore space in shape notation for jaxtyping
+# See https://docs.kidger.site/jaxtyping/faq/#flake8-or-ruff-are-throwing-an-error
+ignore = ["F722"]
+
+[tool.pytest.ini_options]
+markers = [
+    "slow: tests that load the real AION model (skipped by default, run with -m slow)",
+]
+
+[tool.setuptools.packages.find]
+include = ["aion*", "astralbridge*"]
+
+[tool.setuptools_scm]
+# This section configures setuptools_scm
+# It will use git tags to determine version numbers
+# If no tags exist, it will use 0.1.dev0+g<commit_hash>
+fallback_version = "0.1.dev0"
